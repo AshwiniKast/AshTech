@@ -1,2 +1,5 @@
 config.json
 test/config.json
+.ssh/
+id_ed25519
+id_rsa
