@@ -6,9 +6,7 @@ from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 from dotenv import load_dotenv
 load_dotenv()
 
-auto_subscription = os.environ.get("AZURE_SUB_ID", "7de784bb-7104-46d6-b07d-f01eef2f1599")
-auto_resource_group = os.environ.get("CI_RESOURCE_GROUP", "AzureML1")
-auto_workspace = os.environ.get("AZURE_WRKSPC_NAME", "MyWorkspace1")
+
 ws = Workspace.from_config()
 rg_name = os.environ.get("CI_RESOURCE_GROUP")
 if not rg_name:
