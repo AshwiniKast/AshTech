@@ -1,6 +1,5 @@
 # get-started/run-hello.py
 import os
-#os.system ('az account set --subscription "7de784bb-7104-46d6-b07d-f01eef2f1599"')
 
 from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 from dotenv import load_dotenv
