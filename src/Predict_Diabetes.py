@@ -25,32 +25,6 @@ from azure.ai.ml.operations import DataOperations
 # 1. Initialize the modern client (replaces Workspace)
 ml_client = MLClient.from_config(credential=DefaultAzureCredential())
 
-# 2. Fetch your data asset (replaces Dataset)
-# Replace "your_dataset_name" with the actual name of your registered data
-#data_asset = ml_client.data.get(name="DiaData1", version="1")
-
-#print(f"Successfully connected to Data Asset: {data_asset.name}")
-#print(f"Data URI path: {data_asset.path}")
-
-# subscription_id = ''
-# resource_group = 'AzureML1'
-# workspace_name = 'MyWorkspace1'
-
-# workspace = Workspace(subscription_id, resource_group, workspace_name)
-# data_asset = ml_client.data.get(name="DiaData1", version="1")
-# print(f"Data URI path: {data_asset.path}")
-# # dataset = Dataset.get_by_name(workspace, name='DiaData1')
-# #ml_client.data.download(name="DiaData1",download_path='./data', overwrite=False)
-# path = data_asset.path
-# if path.startswith("azureml://"):
-#     # If it's an internal path, we fallback to pulling its direct storage path
-#     # or you can read it directly using the underlying datastore info.
-#     print(f"Asset path is: {path}")
-
-# If your data asset was registered via a path that pandas can reach natively:
-#df = pd.read_csv(data_asset.path)
-
-# In[2]:
 
 import argparse
 import pandas as pd
@@ -66,24 +40,11 @@ df = pd.read_csv(os.path.join(args.data, "diabetes.csv"))  # ← add your actual
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 
-# Initialize the v2 ML Client
-#ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name)
 
-
-# Get the cloud storage URI directly
-#print(data_asset.path)
-# Output example: azureml://datastores/workspaceblobstore/paths/training-data/
-
-
-# In[3]:
 
 
 import pandas as pd
-#df=pd.read_csv(path)
-# df
 
-
-# In[4]:
 
 
 # %%
@@ -91,20 +52,10 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 # %%
-#df=pd.read_csv('/Users/ashwi/Documents/MyRepo1/diabetes.csv')
 
 # %%
 df.info()
 
-# %%
-#print("Nulls")
-#print("======")
-#print(df.isnull().sum())
-
-# %%
-#print("0s")
-#print("===")
-#print(df.eq(0).sum())
 
 # %%
 df[['Glucose','BloodPressure','skinthickness','Insulin','BMI','diabetespedigreefunction','Age']]=df[['glucose','bloodpressure','skinthickness','insulin','bmi','diabetespedigreefunction','age']].replace(0,np.nan)
@@ -197,36 +148,7 @@ pickle.dump(knn, open(filename, 'wb'))
 # %%
 import warnings
 warnings.filterwarnings('ignore')
-# loaded_model=pickle.load(open(filename, 'rb'))
 
-# Glucose=65
-# BMI=70
-# Age=50
-# prediction=loaded_model.predict([[Glucose, BMI, Age]])
-# #print(prediction)
-# if (prediction[0]==0):
-#     #print("Non-diabetic")
-# else:
-#     #print("Diabetic")   
-
-# %%
-#proba=loaded_model.predict_proba([[Glucose,BMI,Age]])
-#print(proba)
-#print("confidence :" +str(round(np.amax(proba[0])* 100, 2))+ "%")
-
-# %%
-
-
-
-
-
-# In[15]:
-
-
-#%pip install mlflow azureml-mlflow
-
-
-# In[5]:
 
 
 import numpy as np
@@ -323,13 +245,4 @@ model_asset = Model(
 )
 registered_model = ml_client.models.create_or_update(model_asset)
 
-# In[9]:
-
-
-#from azureml.core.model import Model
-# model=Model.register(workspace=workspace,
-#                 model_path="./model.pkl",
-#                 model_name="knn_diabetes_model",
-#                 tags={"version": "1.0"},
-#                 description="KNN model to predict Diabetes")
 
