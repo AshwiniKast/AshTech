@@ -29,13 +29,7 @@ try:
     print(f"Successfully authenticated to {ml_client.workspace_name} via config.json!")
 except Exception as e:
     print(f"Could not find config.json. Error: {e}")
-# 1. Connect to your workspace
-# ml_client = MLClient(
-#     credential=DefaultAzureCredential(),
-#     subscription_id=auto_subscription,
-#     resource_group= rg_name, #auto_resource_group,
-#     workspace_name= auto_workspace
-# )
+
 
 from azure.ai.ml import load_environment
 
@@ -82,12 +76,3 @@ job = command(
 ml_client.jobs.create_or_update(job)
 # if __name__ == "__main__":
 #     main()
-# ws = Workspace.from_config()
-# print(ws)
-# experiment = Experiment(workspace=ws, name='day1-experiment-diabetes')
-
-# config = ScriptRunConfig(source_directory='./src', script='Predict_Diabetes.py', compute_target='ashkast991')
-
-# run = experiment.submit(config)
-# aml_url = run.get_portal_url()
-# print(aml_url)
