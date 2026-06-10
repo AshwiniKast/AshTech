@@ -68,7 +68,7 @@ job = command(
     # Reference your registered environment here:
     #environment= "diabetes-training-env-v6@1", 
     environment=f"{registered_env.name}:{registered_env.version}",
-    compute="ashkast991",
+    compute="",
     experiment_name="day1-experiment-diabetes"
 )
 
