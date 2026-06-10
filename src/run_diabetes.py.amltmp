@@ -66,7 +66,7 @@ job = command(
     command="python Predict_Diabetes.py",
     # Reference your registered environment here:
     environment="diabetes-training-env-v4@1", 
-    compute="ashkast991",
+    compute="",
     experiment_name="day1-experiment-diabetes"
 )
 
