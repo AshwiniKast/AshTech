@@ -1,3 +1,5 @@
+### This Repo is created in Azure ML to Predict Diabetes using ML model.
+#### Create Diabetes resource using diabetes.csv from the web.
 #### First run Run_Diabetes.py to run the Training model. (It runs Predict_Diabetes.py from the source folder).
 #### Once model is created, run The score.py is for scoring the model.
 #### The code to deploy and run the API is in the folder "Diabetes_Deploy".
