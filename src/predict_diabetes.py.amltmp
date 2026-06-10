@@ -323,13 +323,4 @@ model_asset = Model(
 )
 registered_model = ml_client.models.create_or_update(model_asset)
 
-# In[9]:
-
-
-#from azureml.core.model import Model
-# model=Model.register(workspace=workspace,
-#                 model_path="./model.pkl",
-#                 model_name="knn_diabetes_model",
-#                 tags={"version": "1.0"},
-#                 description="KNN model to predict Diabetes")
 
